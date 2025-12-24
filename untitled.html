@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZUKANO ASSI NPC - Sustainable Systems Initiative</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a936f;
+            --primary-dark: #0f6b4f;
+            --primary-light: #88d498;
+            --secondary: #f3a738;
+            --accent: #114b5f;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--dark);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .btn:hover {
+            background-color: #e69500;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+            color: var(--primary);
+        }
+        
+        .logo-text span {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 10rem 0 5rem;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+        
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Mission Section */
+        .mission {
+            background-color: white;
+        }
+        
+        .mission-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .mission-text {
+            flex: 1;
+        }
+        
+        .mission-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .mission-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .mission-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .stat {
+            flex: 1;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+        
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Focus Areas */
+        .focus-areas {
+            background-color: var(--light);
+        }
+        
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .focus-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        
+        .focus-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .focus-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .focus-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Team Section */
+        .team {
+            background-color: white;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .member-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .member-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 2.5rem;
+        }
+        
+        .member-header h3 {
+            margin-bottom: 5px;
+            font-size: 1.3rem;
+        }
+        
+        .member-position {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .member-details {
+            padding: 1.5rem;
+        }
+        
+        .member-details p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        
+        .member-expertise {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 1rem;
+        }
+        
+        .expertise-tag {
+            background-color: var(--light-gray);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--primary);
+        }
+
+        /* Board of Directors Section */
+        .board-section {
+            background-color: var(--light);
+        }
+        
+        .board-table {
+            width: 100%;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 3rem;
+        }
+        
+        .board-header {
+            background: linear-gradient(135deg, var(--accent), var(--primary-dark));
+            color: white;
+            padding: 1.5rem 2rem;
+        }
+        
+        .board-header h3 {
+            margin-bottom: 0;
+            font-size: 1.5rem;
+        }
+        
+        .board-row {
+            display: grid;
+            grid-template-columns: 2fr 2fr 1fr;
+            padding: 1.2rem 2rem;
+            border-bottom: 1px solid var(--light-gray);
+            align-items: center;
+        }
+        
+        .board-row:last-child {
+            border-bottom: none;
+        }
+        
+        .board-row.header {
+            background-color: var(--primary-light);
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+        
+        .executive {
+            background-color: rgba(26, 147, 111, 0.05);
+        }
+        
+        .executive-badge {
+            background-color: var(--primary);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .non-executive-badge {
+            background-color: var(--gray);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .vacant {
+            color: var(--gray);
+            font-style: italic;
+        }
+
+        /* Approach Section */
+        .approach {
+            background-color: var(--light);
+        }
+        
+        .approach-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 3rem;
+        }
+        
+        .approach-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 4px;
+            background-color: var(--primary-light);
+            z-index: 1;
+        }
+        
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            padding: 0 15px;
+        }
+        
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .step h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .step p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: white;
+        }
+        
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-form {
+            flex: 1;
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--secondary);
+        }
+        
+        .accreditation {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 1rem;
+        }
+        
+        .accreditation span {
+            background-color: rgba(255,255,255,0.1);
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .mission-content {
+                flex-direction: column;
+            }
+            
+            .approach-steps {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .approach-steps::before {
+                display: none;
+            }
+            
+            .contact-content {
+                flex-direction: column;
+            }
+            
+            .board-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                padding: 1rem;
+            }
+            
+            .board-row.header {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .mission-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .focus-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-btns .btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+        }
+        
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-seedling"></i>
+                    <div class="logo-text">
+                        <h1>ZUKANO ASSI NPC</h1>
+                        <span>Sustainable Systems Initiative</span>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#mission">Mission</a></li>
+                        <li><a href="#focus">Focus Areas</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#board">Board</a></li>
+                        <li><a href="#approach">Approach</a></li>
+                        <li><a href="developments.html">Developments</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Advancing Sustainable Systems & Innovation</h2>
+            <p>Empowering communities through innovative, practical solutions that address food security, economic resilience, environmental sustainability, and cultural preservation.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn btn-primary">Partner With Us</a>
+                <a href="#mission" class="btn btn-outline">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission" id="mission">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Mission & Vision</h2>
+                <p>Building socio-economic resilience through innovative programmes and sustainable systems</p>
+            </div>
+            <div class="mission-content">
+                <div class="mission-text">
+                    <h3>Our Mission</h3>
+                    <p>To research, develop, and implement innovative programmes that build socio-economic resilience and establish sustainable systems supporting all life and the earth itself.</p>
+                    <p>We work collaboratively with communities, International Organizations, African Governments, Private and Civil Society Organizations to create lasting solutions that address immediate needs while building capacity for long-term prosperity.</p>
+                    
+                    <h3>Our Vision</h3>
+                    <p>An Africa where every community has the resources, knowledge, and infrastructure to achieve sustainable growth, where economic opportunity is accessible to all, and where human progress exists in harmony with environmental stewardship and cultural preservation.</p>
+                </div>
+                <div class="mission-image">
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Community development">
+                </div>
+            </div>
+            <div class="mission-stats">
+                <div class="stat">
+                    <span class="stat-number">55+</span>
+                    <span class="stat-label">People Empowered</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">2+</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Partner Organizations</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">10</span>
+                    <span class="stat-label">Focus Sectors</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Focus Areas -->
+    <section class="focus-areas" id="focus">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Core Focus Areas</h2>
+                <p>Integrated approach creating multiplier effects across interconnected sectors</p>
+            </div>
+            <div class="focus-grid">
+                <div class="focus-card fade-in">
+                    <div class="focus-icon">
+                        <i class="fas fa-tractor"></i>
+                    </div>
+                    <h3>Farming & Agro Processing</h3>
+                    <p>Supporting the complete agricultural value chain—from seed to market with warehousing, distribution, and marketing support.</p>
+                </div>
+                <div class="focus-card fade-in">
+                    <div class="focus-icon">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <h3>Built Environment</h3>
+                    <p>Manufacturing sustainable construction materials that are affordable, locally sourced, and environmentally responsible.</p>
+                </div>
+                <div class="focus-card fade-in">
+                    <div class="focus-icon">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <h3>Rural Infrastructure</h3>
+                    <p>Creating spaces where communities can thrive: industrial facilities, housing, training centers, and recreational areas.</p>
+                </div>
+                <div class="focus-card fade-in">
+                    <div class="focus-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Fintech & IT Accessibility</h3>
+                    <p>Breaking down digital barriers to ensure rural and underserved communities can participate in the digital economy.</p>
+                </div>
+                <div class="focus-card fade-in">
+                    <div class="focus-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Education & Skills Training</h3>
+                    <p>Equipping communities and individuals with special needs with knowledge and practical skills for today's economy.</p>
+                </div>
+                <div class="focus-card fade-in">
+                    <div class="focus-icon">
+                        <i class="fas fa-solar-panel"></i>
+                    </div>
+                    <h3>Renewables & Recycling</h3>
+                    <p>Developing renewable energy systems and recycling programmes that reduce environmental impact while creating opportunities.</p>
+                </div>
+                <div class="focus-card fade-in">
+                    <div class="focus-icon">
+                        <i class="fas fa-wheelchair"></i>
+                    </div>
+                    <h3>Special Needs Development</h3>
+                    <p>Advocating for rights and delivering innovative solutions for the holistic development of our Special Needs community.</p>
+                </div>
+                <div class="focus-card fade-in">
+                    <div class="focus-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Finance Assistance</h3>
+                    <p>Providing crowd-funded investment capital and funding solutions for new venture creation in rural development.</p>
+                </div>
+                <div class="focus-card fade-in">
+                    <div class="focus-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Shared-Growth Systems</h3>
+                    <p>Our unique model ensures prosperity is distributed equitably, benefiting entire communities, not just a select few.</p>
+                </div>
+                <div class="focus-card fade-in">
+                    <div class="focus-icon">
+                        <i class="fas fa-first-aid"></i>
+                    </div>
+                    <h3>Disaster Relief</h3>
+                    <p>Responding with immediate aid and long-term recovery support to help communities rebuild stronger and more resilient.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Management Team</h2>
+                <p>Meet the dedicated professionals driving ZUKANO ASSI NPC forward</p>
+            </div>
+            <div class="team-grid">
+                <!-- Existing Team Members 1-12 -->
+                <div class="team-member fade-in">
+                    <div class="member-header">
+                        <div class="member-avatar">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Andile T. Shezi</h3>
+                        <div class="member-position">Ideation Lead</div>
+                    </div>
+                    <div class="member-details">
+                        <p>Ideation Lead with more than 10 years of specialized general building construction and organic agricultural knowledge. His leadership has been pivotal in navigating complex projects and continuously up-skilling the workforce.</p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Construction</span>
+                            <span class="expertise-tag">Organic Agriculture</span>
+                            <span class="expertise-tag">Project Leadership</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="team-member fade-in">
+                    <div class="member-header">
+                        <div class="member-avatar">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>Ms. Nomthandazo P. Shezi</h3>
+                        <div class="member-position">Managing Director</div>
+                    </div>
+                    <div class="member-details">
+                        <p>Managing Director with over 20 years of expertise in general building and civil construction. The driving force behind the company's success, continually enhancing professional administration standards through skill development and innovation.</p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Construction</span>
+                            <span class="expertise-tag">Administration</span>
+                            <span class="expertise-tag">Leadership</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="team-member fade-in">
+                    <div class="member-header">
+                        <div class="member-avatar">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3>Mr. Miungisi C. Nkosi</h3>
+                        <div class="member-position">Operations Manager & Health & Safety Officer</div>
+                    </div>
+                    <div class="member-details">
+                        <p>Our Operations Manager and Health & Safety Officer is a dedicated Agronomist with a strong foundation in agricultural sciences. He implements innovative agricultural techniques to enhance productivity and sustainability. Analyses soil health, crop rotation, post-harvest crop handling etc.</p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Agronomy</span>
+                            <span class="expertise-tag">Operations</span>
+                            <span class="expertise-tag">Health & Safety</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div class="team-member fade-in">
+                    <div class="member-header">
+                        <div class="member-avatar">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Mr. Asanda Khumalo</h3>
+                        <div class="member-position">IT Specialist</div>
+                    </div>
+                    <div class="member-details">
+                        <p>He holds a Diploma in Information Technology and a Full Stack Web Developer certificate From FNB APP ACADEMY. He designs digital solutions and in-house Information Technology Educational Programmes.</p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">IT Solutions</span>
+                            <span class="expertise-tag">Web Development</span>
+                            <span class="expertise-tag">Education</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 5 -->
+                <div class="team-member fade-in">
+                    <div class="member-header">
+                        <div class="member-avatar">
+                            <i class="fas fa-drafting-compass"></i>
+                        </div>
+                        <h3>Mr. Mashiya Ngcobo</h3>
+                        <div class="member-position">Architect & Project Manager</div>
+                    </div>
+                    <div class="member-details">
+                        <p>Qualified Architect and Project Manager with over 11 years of experience working on local and international projects. Oversees architectural design, planning, and strategic project management.</p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Architecture</span>
+                            <span class="expertise-tag">Project Management</span>
+                            <span class="expertise-tag">Strategic Planning</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 6 -->
+                <div class="team-member fade-in">
+                    <div class="member-header">
+                        <div class="member-avatar">
+                            <i class="fas fa-theater-masks"></i>
+                        </div>
+                        <h3>Mr. Sifiso Ndlovu</h3>
+                        <div class="member-position">Arts & Culture Manager</div>
+                    </div>
+                    <div class="member-details">
+                        <p>Holds a Diploma (DUT) in Speech and Drama & Television Production boasting over 8 years of experience Facilitating and Managing Arts & Culture development programmes in the Public Sector. (Former facilitator at eThekwini Department of Arts & Living Cultures)</p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Arts & Culture</span>
+                            <span class="expertise-tag">Public Sector</span>
+                            <span class="expertise-tag">Television Production</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 7 -->
+                <div class="team-member fade-in">
+                    <div class="member-header">
+                        <div class="member-avatar">
+                            <i class="fas fa-hammer"></i>
+                        </div>
+                        <h3>Mr. Banele Mcineka</h3>
+                        <div class="member-position">Carpentry & Education Specialist</div>
+                    </div>
+                    <div class="member-details">
+                        <p>Skilled professional with a CETA Trade Certificate in Carpentry and Woodwork, complemented by a Bachelor's Degree in Education. Banele brings a unique blend of hands-on technical expertise for training and development. oversees all our custom built-in cabinets and carpentry projects from Planning, Design to Execution.</p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Carpentry</span>
+                            <span class="expertise-tag">Education</span>
+                            <span class="expertise-tag">Training & Development</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 8 -->
+                <div class="team-member fade-in">
+                    <div class="member-header">
+                        <div class="member-avatar">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Mr. Wonderboy A. Shezi</h3>
+                        <div class="member-position">Certified Facilities Manager</div>
+                    </div>
+                    <div class="member-details">
+                        <p>Certified Facilities Manager with over 8 years of experience serving in the private sector, managing a wide range of infrastructure projects such as electrical systems, plumbing and painting projects.</p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Facilities Management</span>
+                            <span class="expertise-tag">Infrastructure</span>
+                            <span class="expertise-tag">Electrical Systems</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 9 -->
+                <div class="team-member fade-in">
+                    <div class="member-header">
+                        <div class="member-avatar">
+                            <i class="fas fa-ruler-combined"></i>
+                        </div>
+                        <h3>Mr. Khayalethu Khuzwayo</h3>
+                        <div class="member-position">Land & Quantity Surveyor</div>
+                    </div>
+                    <div class="member-details">
+                        <p>A Qualified and experienced Land & Quantity Surveyor. Responsible for carrying out project feasibility studies, planning and successful execution.</p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Land Surveying</span>
+                            <span class="expertise-tag">Quantity Surveying</span>
+                            <span class="expertise-tag">Feasibility Studies</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 10 -->
+                <div class="team-member fade-in">
+                    <div class="member-header">
+                        <div class="member-avatar">
+                            <i class="fas fa-universal-access"></i>
+                        </div>
+                        <h3>Mr. Thabani Duma</h3>
+                        <div class="member-position">Special Needs Advocate</div>
+                    </div>
+                    <div class="member-details">
+                        <p>A Social Entrepreneur and Community Developer. A young man living with physical disability. He actively guides development, planning and execution of our advocacy and development Programmes for Individuals with Special Needs.</p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Special Needs</span>
+                            <span class="expertise-tag">Advocacy</span>
+                            <span class="expertise-tag">Community Development</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 11 -->
+                <div class="team-member fade-in">
+                    <div class="member-header">
+                        <div class="member-avatar">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>T/DR. Nkululeko Nkabinde</h3>
+                        <div class="member-position">Traditional Doctor</div>
+                    </div>
+                    <div class="member-details">
+                        <p>A certified Traditional Doctor, accredited by African National Healers Association. The Traditional Doctor assists in research, identification and knowledge on safe administration of traditional medicinal herbs.</p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Traditional Medicine</span>
+                            <span class="expertise-tag">Herbal Knowledge</span>
+                            <span class="expertise-tag">Research</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 12 -->
+                <div class="team-member fade-in">
+                    <div class="member-header">
+                        <div class="member-avatar">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <h3>Mr. Senzo Sokhela</h3>
+                        <div class="member-position">Sports & Culture Head</div>
+                    </div>
+                    <div class="member-details">
+                        <p>A seasoned sports journalist boasting 10+ experience as Ilanga Newspaper Senior Sports journalist. He heads design and coordination of sports & culture development Programmes and media relations.</p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Sports Journalism</span>
+                            <span class="expertise-tag">Media Relations</span>
+                            <span class="expertise-tag">Program Coordination</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- NEW: Division Manager 13 - Lindo Zuma -->
+                <div class="team-member fade-in">
+                    <div class="member-header">
+                        <div class="member-avatar">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h3>Mr. Lindo Zuma</h3>
+                        <div class="member-position">Marketing & Copywriting</div>
+                    </div>
+                    <div class="member-details">
+                        <p>Lindo Zuma is a seasoned marketing and copywriting expert with a solid foundation in customer service and management of call centre operations, bringing over 8 years of hands-on experience in consumer behaviour and delivering high-impact brand solutions.</p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Marketing</span>
+                            <span class="expertise-tag">Copywriting</span>
+                            <span class="expertise-tag">Consumer Behavior</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- NEW: Division Manager 14 - Nkosinathi Gowabaza -->
+                <div class="team-member fade-in">
+                    <div class="member-header">
+                        <div class="member-avatar">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Mr. Nkosinathi Gowabaza</h3>
+                        <div class="member-position">Junior Farm Manager</div>
+                    </div>
+                    <div class="member-details">
+                        <p>A life-long member of the Rastafarian Niabingi Community, Nkosinathi serves as our Junior Farm Manager, bringing valuable indigenous knowledge and perspective to daily operations. His practical skills and earth-conscious approach help guide sustainable farming and support healthy, productive land management.</p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Indigenous Knowledge</span>
+                            <span class="expertise-tag">Sustainable Farming</span>
+                            <span class="expertise-tag">Land Management</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- NEW: Division Manager 15 - Mbalenhle Shezi -->
+                <div class="team-member fade-in">
+                    <div class="member-header">
+                        <div class="member-avatar">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Ms. Mbalenhle Shezi</h3>
+                        <div class="member-position">Brand Activations Specialist</div>
+                    </div>
+                    <div class="member-details">
+                        <p>Mbali is a young and enthusiastic team member specializing in public brand activations, customer assistance and aftercare support. Her energetic presence and warm client approach helps her create memorable brand experiences and ensures customers feel valued long after first contact.</p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Brand Activations</span>
+                            <span class="expertise-tag">Customer Service</span>
+                            <span class="expertise-tag">Aftercare Support</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- NEW: Division Manager 16 - Kenneth Motswi -->
+                <div class="team-member fade-in">
+                    <div class="member-header">
+                        <div class="member-avatar">
+                            <i class="fas fa-pencil-ruler"></i>
+                        </div>
+                        <h3>Kenneth Motswi</h3>
+                        <div class="member-position">Industrial Designer</div>
+                    </div>
+                    <div class="member-details">
+                        <p>Kenneth is an industrial designer with a strong focus on automotive and footwear design. He holds a Bachelor of Arts in Industrial Design from the University of Johannesburg. He blends precision, style and CGI artistry to develop sleek and functional concept models of our in-house product developments.</p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Industrial Design</span>
+                            <span class="expertise-tag">Automotive Design</span>
+                            <span class="expertise-tag">CGI Artistry</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Board of Directors Section -->
+    <section class="board-section" id="board">
+        <div class="container">
+            <div class="section-title">
+                <h2>Board of Directors</h2>
+                <p>Governance and strategic leadership guiding ZUKANO ASSI NPC's mission and vision</p>
+            </div>
+            
+            <div class="board-table fade-in">
+                <div class="board-header">
+                    <h3>Governance Structure</h3>
+                </div>
+                
+                <div class="board-row header">
+                    <div>Name</div>
+                    <div>Position</div>
+                    <div>Role</div>
+                </div>
+                
+                <div class="board-row executive">
+                    <div><strong>Ms. Nomthandazo P. Shezi</strong></div>
+                    <div>Managing Director</div>
+                    <div><span class="executive-badge">Executive</span></div>
+                </div>
+                
+                <div class="board-row executive">
+                    <div><strong>Mr. Andile T. Shezi</strong></div>
+                    <div>Director of Innovation</div>
+                    <div><span class="executive-badge">Executive</span></div>
+                </div>
+                
+                <div class="board-row">
+                    <div><strong>Mr. Mlungisi Nkosi</strong></div>
+                    <div>Director of Sustainability & Operations</div>
+                    <div><span class="non-executive-badge">Non-Executive</span></div>
+                </div>
+                
+                <div class="board-row">
+                    <div><strong>Mr. Mashiya Ngcobo</strong></div>
+                    <div>Architecture & Property Development Division</div>
+                    <div><span class="non-executive-badge">Non-Executive</span></div>
+                </div>
+                
+                <div class="board-row">
+                    <div><strong>Mr. Thabani Duma</strong></div>
+                    <div>Director of Social Impact & Community Inclusion</div>
+                    <div><span class="non-executive-badge">Non-Executive</span></div>
+                </div>
+                
+                <div class="board-row vacant">
+                    <div><strong>Position to be filled</strong></div>
+                    <div>Finance & Accounting</div>
+                    <div><span class="non-executive-badge">Non-Executive</span></div>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <p>The Board of Directors provides strategic oversight and governance, ensuring ZUKANO ASSI NPC remains true to its mission while driving sustainable growth and community impact.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Approach Section -->
+    <section class="approach" id="approach">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Approach</h2>
+                <p>Integrated solutions for lasting impact through a holistic 5-step process</p>
+            </div>
+            <div class="approach-steps">
+                <div class="step fade-in">
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Research</h3>
+                    <p>Evidence-based understanding of community needs and effective interventions</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Sustainability</h3>
+                    <p>Building capacity for communities to maintain and expand initiatives independently</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-icon">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <h3>Design</h3>
+                    <p>Collaborative programme development with community input and expert guidance</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Implementation</h3>
+                    <p>Deploying solutions through partnerships that respect local context</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Evaluation</h3>
+                    <p>Continuous monitoring and learning to improve and scale what works</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get Involved</h2>
+                <p>Join us in creating a world where every community has the opportunity to thrive</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Details</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Telephone/Mobile</h4>
+                            <p>078 872 7799 / 081 517 1172</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>zukanocommunications@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Office Address</h4>
+                            <p>No. 56, 62025 Street<br>Clifdale, Outer West Durban<br>3700</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div>
+                            <h4>Accreditation</h4>
+                            <div class="accreditation">
+                                <span>Reg. No: 2025/671638/08</span>
+                                <span>Tax No: 9247149280</span>
+                                <span>BBBEE: Level 1 Contributor</span>
+                                <span>NHBRC: 3000186796</span>
+                                <span>CIDB: 101092</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="organization">Organization</label>
+                            <input type="text" id="organization">
+                        </div>
+                        <div class="form-group">
+                            <label for="interest">Area of Interest</label>
+                            <select id="interest">
+                                <option value="">Select an area</option>
+                                <option value="farming">Farming & Agro Processing</option>
+                                <option value="construction">Built Environment</option>
+                                <option value="infrastructure">Rural Infrastructure</option>
+                                <option value="fintech">Fintech & IT Accessibility</option>
+                                <option value="education">Education & Skills Training</option>
+                                <option value="renewables">Renewables & Recycling</option>
+                                <option value="specialneeds">Special Needs Development</option>
+                                <option value="finance">Finance Assistance</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ZUKANO ASSI NPC</h3>
+                    <p>Advancing Sustainable Systems & Innovation across Africa through integrated solutions that build socio-economic resilience.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#mission">Mission & Vision</a></li>
+                        <li><a href="#focus">Focus Areas</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#board">Board of Directors</a></li>
+                        <li><a href="#approach">Our Approach</a></li>
+                        <li><a href="developments.html">Developments</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 ZUKANO ASSI NPC. All rights reserved. Reg. No: 2025/671638/08 | "The future belongs to those who believe in the beauty of their dreams—and have the courage to work together to make them reality."</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav ul');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'white';
+                header.style.backdropFilter = 'none';
+            }
+        });
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+        
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        // Initial check on page load
+        fadeInOnScroll();
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 768) {
+                        nav.style.display = 'none';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
